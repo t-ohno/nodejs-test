@@ -3,3 +3,6 @@ machine:
     Asia/Tokyo
   node:
     version: 0.11.11
+override:
+    - docker info
+    - docker build -t mongo .
