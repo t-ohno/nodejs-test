@@ -1,8 +1,11 @@
 machine:
   timezone:
     Asia/Tokyo
+  services:
+    - docker
   node:
     version: 0.11.11
-override:
+dependencies:
+  override:
     - docker info
     - docker build -t mongo .
