@@ -1,8 +1,23 @@
 {
   "name": "circle-node",
+  "dependencies": {
+    "async": "*",
+    "bootstrap": "*",
+    "config": "*",
+    "connect-flash": "*",
+    "ect": "*",
+    "express": "3.2.6",
+    "less-middleware": "*",
+    "log4js": "*",
+    "mongoose": "*",
+    "request": "*",
+    "supervisor": "*"
+  },
   "devDependencies": {
-    "mocha": "~1.17.1",
-    "expect.js": "~0.2.0"
+    "mocha": "*",
+    "expect.js": "*",
+    "should": "*",
+    "selenium-webdriver": "*"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha"
