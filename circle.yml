@@ -24,4 +24,4 @@ deployment:
   staging:
     branch: master
     commands:
-      - echo "exec staging deploy"
+      - echo "please deploy setting."
