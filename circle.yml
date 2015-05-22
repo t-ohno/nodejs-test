@@ -6,6 +6,22 @@ machine:
   node:
     version: 0.11.11
 dependencies:
-  override:
-    - docker info
-    - docker build -t mongo .
+  cache_directories:
+    - mongodb-linux-x86_64-3.0.3
+  pre:
+    - if [[ ! -d mongodb-linux-x86_64-3.0.3 ]]; then wget http://downloads.mongodb.org/linux/mongodb-linux-x86_64-3.0.3.tgz && tar xvzf mongodb-linux-x86_64-3.0.3.tgz; fi
+    - sudo /etc/init.d/mongodb stop
+    - sudo cp mongodb-linux-x86_64-3.0.3/bin/* /usr/bin
+    - sudo /etc/init.d/mongodb start
+test:
+  pre:
+    - mongo --quiet localhost/testdb make_users.js
+deployment:
+  feature:
+    branch: /^(?!^master$).+$/
+    commands:
+      - echo "doesn't support feature branch deploy"
+  staging:
+    branch: master
+    commands:
+      - echo "exec staging deploy"
